@@ -77,9 +77,11 @@ namespace Data
             return list.Count;
         }
 
-        public Task<List<BlogPost>> GetBlogPostsAsync(int numberofposts, int startindex)
+        public async Task<List<BlogPost>> GetBlogPostsAsync(int numberofposts, int startindex)
         {
-            throw new NotImplementedException();
+            var list = await LoadAsync<BlogPost>(_settings.BlogPostsFolder);
+
+            return list.Skip(startindex).Take(numberofposts).ToList();
         }
 
         public Task<List<Category>> GetCategoriesAsync()
