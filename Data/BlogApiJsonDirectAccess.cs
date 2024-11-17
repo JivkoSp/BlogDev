@@ -84,9 +84,9 @@ namespace Data
             return list.Skip(startindex).Take(numberofposts).ToList();
         }
 
-        public Task<List<Category>> GetCategoriesAsync()
+        public async Task<List<Category>> GetCategoriesAsync()
         {
-            throw new NotImplementedException();
+            return await LoadAsync<Category>(_settings.CategoriesFolder);
         }
 
         public Task<List<Tag>> GetTagsAsync()
