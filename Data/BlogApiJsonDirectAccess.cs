@@ -94,9 +94,11 @@ namespace Data
             return await LoadAsync<Tag>(_settings.TagsFolder);
         }
 
-        public Task<List<Comment>> GetCommentsAsync(string blogPostId)
+        public async Task<List<Comment>> GetCommentsAsync(string blogPostId)
         {
-            throw new NotImplementedException();
+            var list = await LoadAsync<Comment>(_settings.CommentsFolder);
+
+            return list.Where(t => t.BlogPostId == blogPostId).ToList();
         }
 
         public async Task<BlogPost?> GetBlogPostAsync(string id)
