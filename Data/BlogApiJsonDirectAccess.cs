@@ -151,7 +151,11 @@ namespace Data
 
         public Task<Comment?> SaveCommentAsync(Comment item)
         {
-            throw new NotImplementedException();
+            item.Id ??= Guid.NewGuid().ToString();
+
+            await SaveAsync(_settings.CommentsFolder, item.Id, item);
+
+            return item;
         }
 
         public Task DeleteBlogPostAsync(string id)
