@@ -140,9 +140,13 @@ namespace Data
             return item;
         }
 
-        public Task<Tag?> SaveTagAsync(Tag item)
+        public async Task<Tag?> SaveTagAsync(Tag item)
         {
-            throw new NotImplementedException();
+            item.Id ??= Guid.NewGuid().ToString();
+
+            await SaveAsync(_settings.TagsFolder, item.Id, item);
+
+            return item;
         }
 
         public Task<Comment?> SaveCommentAsync(Comment item)
