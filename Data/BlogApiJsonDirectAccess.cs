@@ -113,9 +113,11 @@ namespace Data
             return list.FirstOrDefault(c => c.Id == id);
         }
 
-        public Task<Tag?> GetTagAsync(string id)
+        public async Task<Tag?> GetTagAsync(string id)
         {
-            throw new NotImplementedException();
+            var list = await LoadAsync<Tag>(_settings.TagsFolder);
+
+            return list.FirstOrDefault(t => t.Id == id);
         }
 
         public Task<BlogPost?> SaveBlogPostAsync(BlogPost item)
