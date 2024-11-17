@@ -106,9 +106,11 @@ namespace Data
             return list.FirstOrDefault(bp => bp.Id == id);
         }
 
-        public Task<Category?> GetCategoryAsync(string id)
+        public async Task<Category?> GetCategoryAsync(string id)
         {
-            throw new NotImplementedException();
+            var list = await LoadAsync<Category>(_settings.CategoriesFolder);
+
+            return list.FirstOrDefault(c => c.Id == id);
         }
 
         public Task<Tag?> GetTagAsync(string id)
