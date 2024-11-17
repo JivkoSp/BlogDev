@@ -149,7 +149,7 @@ namespace Data
             return item;
         }
 
-        public Task<Comment?> SaveCommentAsync(Comment item)
+        public async Task<Comment?> SaveCommentAsync(Comment item)
         {
             item.Id ??= Guid.NewGuid().ToString();
 
