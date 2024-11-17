@@ -1,7 +1,7 @@
 ﻿
 namespace Data.Models
 {
-    internal sealed class Tag
+    public sealed class Tag
     {
         public string? Id { get; set; }
 

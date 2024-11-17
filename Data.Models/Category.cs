@@ -1,7 +1,7 @@
 ﻿
 namespace Data.Models
 {
-    internal sealed class Category
+    public sealed class Category
     {
         public string? Id { get; set; }
 

@@ -1,7 +1,7 @@
 ﻿
 namespace Data.Models
 {
-    internal sealed class BlogPost
+    public sealed class BlogPost
     {
         public string? Id { get; set; }
 

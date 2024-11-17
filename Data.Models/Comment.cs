@@ -1,7 +1,7 @@
 ﻿
 namespace Data.Models
 {
-    internal sealed class Comment
+    public sealed class Comment
     {
         public string? Id { get; set; }
 

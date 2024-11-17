@@ -1,7 +1,7 @@
 ﻿
 namespace Data.Models.Interfaces
 {
-    internal interface IBlogApi
+    public interface IBlogApi
     {
         Task<int> GetBlogPostCountAsync();
         Task<List<BlogPost>> GetBlogPostsAsync(int numberofposts, int startindex);
