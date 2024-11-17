@@ -122,9 +122,13 @@ namespace Data
             return list.FirstOrDefault(t => t.Id == id);
         }
 
-        public Task<BlogPost?> SaveBlogPostAsync(BlogPost item)
+        public async Task<BlogPost?> SaveBlogPostAsync(BlogPost item)
         {
-            throw new NotImplementedException();
+            item.Id ??= Guid.NewGuid().ToString();
+
+            await SaveAsync(_settings.BlogPostsFolder, item.Id, item);
+
+            return item;
         }
 
         public Task<Category?> SaveCategoryAsync(Category item)
