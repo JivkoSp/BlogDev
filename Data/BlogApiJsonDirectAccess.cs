@@ -131,9 +131,13 @@ namespace Data
             return item;
         }
 
-        public Task<Category?> SaveCategoryAsync(Category item)
+        public async Task<Category?> SaveCategoryAsync(Category item)
         {
-            throw new NotImplementedException();
+            item.Id ??= Guid.NewGuid().ToString();
+
+            await SaveAsync(_settings.CategoriesFolder, item.Id, item);
+
+            return item;
         }
 
         public Task<Tag?> SaveTagAsync(Tag item)
