@@ -89,9 +89,9 @@ namespace Data
             return await LoadAsync<Category>(_settings.CategoriesFolder);
         }
 
-        public Task<List<Tag>> GetTagsAsync()
+        public async Task<List<Tag>> GetTagsAsync()
         {
-            throw new NotImplementedException();
+            return await LoadAsync<Tag>(_settings.TagsFolder);
         }
 
         public Task<List<Comment>> GetCommentsAsync(string blogPostId)
