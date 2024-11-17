@@ -99,9 +99,11 @@ namespace Data
             throw new NotImplementedException();
         }
 
-        public Task<BlogPost?> GetBlogPostAsync(string id)
+        public async Task<BlogPost?> GetBlogPostAsync(string id)
         {
-            throw new NotImplementedException();
+            var list = await LoadAsync<BlogPost>(_settings.BlogPostsFolder);
+
+            return list.FirstOrDefault(bp => bp.Id == id);
         }
 
         public Task<Category?> GetCategoryAsync(string id)
