@@ -39,7 +39,9 @@ namespace Data
             foreach (var f in Directory.GetFiles($@"{_settings.DataPath}\{folder}"))
             {
                 var json = await File.ReadAllTextAsync(f);
+
                 var blogPost = JsonSerializer.Deserialize<T>(json);
+
                 if (blogPost is not null)
                 {
                     list.Add(blogPost);
@@ -68,9 +70,11 @@ namespace Data
             return Task.CompletedTask;
         }
 
-        public Task<int> GetBlogPostCountAsync()
+        public async Task<int> GetBlogPostCountAsync()
         {
-            throw new NotImplementedException();
+            var list = await LoadAsync<BlogPost>(_settings.BlogPostsFolder);
+
+            return list.Count;
         }
 
         public Task<List<BlogPost>> GetBlogPostsAsync(int numberofposts, int startindex)
