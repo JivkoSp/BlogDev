@@ -1,13 +1,16 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.12.35506.116 d17.12
+VisualStudioVersion = 17.12.35506.116
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyBlog", "MyBlog\MyBlog\MyBlog.csproj", "{1D4FD2AC-D041-4081-A20F-0B8E9388C91A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyBlog.Client", "MyBlog\MyBlog.Client\MyBlog.Client.csproj", "{2B4B5AF2-F90E-4CCA-88BA-D35B3EFB745A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data", "Data\Data.csproj", "{008B54AC-0967-4719-AB37-240830707D62}"
+	ProjectSection(ProjectDependencies) = postProject
+		{D546486C-A9D5-4AC1-91D9-C7EB02A026A5} = {D546486C-A9D5-4AC1-91D9-C7EB02A026A5}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data.Models", "Data.Models\Data.Models.csproj", "{D546486C-A9D5-4AC1-91D9-C7EB02A026A5}"
 EndProject
