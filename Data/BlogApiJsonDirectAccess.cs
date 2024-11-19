@@ -173,9 +173,9 @@ namespace Data
             }
         }
 
-        public Task DeleteCategoryAsync(string id)
+        public async Task DeleteCategoryAsync(string id)
         {
-            throw new NotImplementedException();
+            await DeleteAsync(_settings.CategoriesFolder, id);
         }
 
         public Task DeleteTagAsync(string id)
