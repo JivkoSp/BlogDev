@@ -158,9 +158,19 @@ namespace Data
             return item;
         }
 
-        public Task DeleteBlogPostAsync(string id)
+        public async Task DeleteBlogPostAsync(string id)
         {
-            throw new NotImplementedException();
+            await DeleteAsync(_settings.BlogPostsFolder, id);
+
+            var comments = await GetCommentsAsync(id);
+
+            foreach (var comment in comments)
+            {
+                if (comment.Id != null)
+                {
+                    await DeleteAsync(_settings.CommentsFolder, comment.Id);
+                }
+            }
         }
 
         public Task DeleteCategoryAsync(string id)
