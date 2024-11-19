@@ -178,9 +178,9 @@ namespace Data
             await DeleteAsync(_settings.CategoriesFolder, id);
         }
 
-        public Task DeleteTagAsync(string id)
+        public async Task DeleteTagAsync(string id)
         {
-            throw new NotImplementedException();
+            await DeleteAsync(_settings.TagsFolder, id);
         }
 
         public Task DeleteCommentAsync(string id)
